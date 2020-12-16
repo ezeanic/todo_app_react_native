@@ -6,7 +6,7 @@ const Header = (props) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Header!</Text>
+            <Text style={styles.title}>To do</Text>
         </View>
     );
 }
@@ -14,19 +14,23 @@ const Header = (props) => {
 
   const styles = StyleSheet.create({
     container: {
-        // flex: 1,
-        // backgroundColor: '#fff',
-        // alignItems: 'center',
-        // height: 60,
-        // width: '100%',
-        // justifyContent: 'center',
+        position: 'absolute',
+        flex:0.1,
+        left: 0,
+        right: 0,
+        top: -10,
+        backgroundColor:'green',
+        flexDirection:'row',
+        height:90,
+        alignItems:'center',
       },
     title: {
-        // color: 'white',
-        // fontSize :20,
-        // fontWeight: 900,
-        // backgroundColor: 'black',
-        // textTransform: 'uppercase'
+        color: 'white',
+        height:90,
+        fontSize: 30,
+        fontWeight: "900",
+        padding: "38%",
+        textTransform: 'uppercase'
     }
   });
 

@@ -3,11 +3,11 @@ import { render } from 'react-dom';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 
 const InputBar = (props) => {
-
+    
     return (
         <View style={styles.inputcontainer}>
-            <TextInput style={styles.input} onChangeText={(todoInput) => props.textChange(todoInput)} value={props.todoInput}/>
-            <TouchableOpacity style={styles.addButton} onPress={props.addNewTodo}>
+            <TextInput placeholder="Enter event" style={styles.input} onChangeText={(todoInput) => props.textChange(todoInput)} value={props.todoInput}/>
+            <TouchableOpacity style={styles.addButton} onPress={()=>{props.addNewTodo()}}>
                 <Text style={styles.addButtonText}>ADD</Text>
             </TouchableOpacity>
         </View>
@@ -18,10 +18,17 @@ const InputBar = (props) => {
   const styles = StyleSheet.create({
     inputcontainer: {
         flexDirection: "row",
-        textShadowOffset: 'space-between',
+        // // textShadowOffset: 'space-between',
         shadowOpacity: 0.1,
         shadowColor: '#171717',
         justifyContent: 'center',
+        position: "absolute",
+
+        // position: 'absolute',
+        top: "15%",
+        left: 20,
+        right: 15,
+        // alignItems:'center',
       },
     input: {
         fontSize :18,
@@ -31,13 +38,13 @@ const InputBar = (props) => {
     },
     addButton: {
         width: 100,
-        backgroundColor: "#FFCE00",
+        backgroundColor: "green",
         alignItems: "center",
         justifyContent: "center"
     },
     addButtonText: {
-        color: "#171717",
-        fontWeight: 700,
+        color: "white",
+        // fontWeight: 700,
         textTransform: 'uppercase',
         
     }
