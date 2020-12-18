@@ -26,11 +26,13 @@ const Header = (props) => {
       },
     title: {
         color: 'white',
-        height:90,
         fontSize: 30,
+        top: 10,
         fontWeight: "900",
-        padding: "38%",
-        textTransform: 'uppercase'
+        padding: 100,
+        textTransform: 'uppercase',
+        flex: 1,
+        textAlign: 'center',
     }
   });
 

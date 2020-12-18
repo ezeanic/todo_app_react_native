@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { render } from 'react-dom';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 
 const InputBar = (props) => {
-    
+    const [text, setText] = useState(''); // for clearing Textinput
     return (
-        <View style={styles.inputcontainer}>
-            <TextInput placeholder="Enter event" style={styles.input} onChangeText={(todoInput) => props.textChange(todoInput)} value={props.todoInput}/>
-            <TouchableOpacity style={styles.addButton} onPress={()=>{props.addNewTodo()}}>
+        <View style={styles.inputcontainer} keyboardShouldPersistTaps='always'>
+            <ScrollView style={styles.scrollviews}>
+                <TextInput  placeholder="Enter event" clearButtonMode="always" style={styles.input} onChangeText={(todoInput) => {props.textChange(todoInput); setText(todoInput)}} value={text}/>
+            </ScrollView>
+            <TouchableOpacity style={styles.addButton} onPress={()=>{props.addNewTodo(); setText('')}}>
                 <Text style={styles.addButtonText}>ADD</Text>
             </TouchableOpacity>
+            
         </View>
     );
 }
@@ -18,35 +21,43 @@ const InputBar = (props) => {
   const styles = StyleSheet.create({
     inputcontainer: {
         flexDirection: "row",
-        // // textShadowOffset: 'space-between',
         shadowOpacity: 0.1,
         shadowColor: '#171717',
         justifyContent: 'center',
-        position: "absolute",
-
-        // position: 'absolute',
-        top: "15%",
-        left: 20,
-        right: 15,
-        // alignItems:'center',
+        position: "relative",
+        top: 110,
+        left: 10,
+        right: 10,
+        // alignItems:'center'
       },
     input: {
-        fontSize :18,
-        flex: 1,
-        backgroundColor: '#F3F3F3',
-        height: 35
+        fontSize: 18,
+        paddingVertical: 8,
+        backgroundColor: '#D3D3D3',
+        width: "85%"
     },
     addButton: {
-        width: 100,
+        width: "20%",
         backgroundColor: "green",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        paddingHorizontal: 2,
+        paddingVertical: 10,
+        left: "-35%",
+        paddingHorizontal: 3,
+        paddingVertical: 8,
     },
     addButtonText: {
         color: "white",
-        // fontWeight: 700,
+        fontWeight: "700",
+        fontSize: 12,
         textTransform: 'uppercase',
-        
+    },
+    cleartext: {
+
+    },
+    cleartexttext: {
+        fontSize: 30
     }
   });
 
